@@ -1,0 +1,245 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>basic of ml</title>
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github-dark.css">
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github-dark.css">
+      <style>
+  
+  :root { color-scheme: light dark; }
+  body { 
+    font-family: system-ui, -apple-system, sans-serif; 
+    line-height: 1.5; 
+    margin: 0; 
+    padding: 20px;
+    background: #ffffff;
+    color: #1a1a1a;
+  }
+  body.dark { background: #1a1a1a; color: #fff; }
+  
+  /* Common syntax highlighting styles */
+  .hljs {
+    display: block;
+    overflow-x: auto;
+    padding: 1em;
+    color: #abb2bf;
+    background: #282c34;
+    border-radius: 0.5rem;
+  }
+  body.dark .hljs { background: #1a1a1a; }
+  
+  /* Common output styles */
+  .output { 
+    margin-top: 1rem; 
+    padding: 1rem; 
+    background: #f5f5f5; 
+    border-radius: 0.5rem;
+    color: #1a1a1a;
+  }
+  body.dark .output { background: #2a2a2a; }
+  
+  /* Common table styles */
+  .data-grid {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1rem 0;
+    background: white;
+    color: #1a1a1a;
+  }
+  .data-grid th,
+  .data-grid td {
+    padding: 0.75rem;
+    border: 1px solid #e5e7eb;
+    text-align: left;
+  }
+
+  
+  .document-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+  
+  .prose {
+    font-size: 1.125rem;
+    line-height: 1.75;
+  }
+  
+  .prose h1 { font-size: 2.25rem; margin-top: 0; }
+  .prose h2 { font-size: 1.875rem; }
+  .prose h3 { font-size: 1.5rem; }
+  
+  .prose p { margin: 1.5rem 0; }
+  
+  .prose pre {
+    background: #f5f5f5;
+    padding: 0;
+    border-radius: 0.5rem;
+    overflow-x: auto;
+  }
+  
+  body.dark .prose pre { background: #2a2a2a; }
+
+  /* Code block styles */
+  .prose pre code {
+    display: block;
+    padding: 1rem;
+    color: #abb2bf;
+    background: #282c34;
+    border-radius: 0.5rem;
+  }
+
+  body.dark .prose pre code {
+    background: #1a1a1a;
+  }
+
+  /* Syntax highlighting colors */
+  .hljs-comment,
+  .hljs-quote {
+    color: #5c6370;
+    font-style: italic;
+  }
+
+  .hljs-doctag,
+  .hljs-formula,
+  .hljs-keyword {
+    color: #c678dd;
+  }
+
+  .hljs-section,
+  .hljs-name,
+  .hljs-selector-tag,
+  .hljs-deletion,
+  .hljs-subst {
+    color: #e06c75;
+  }
+
+  .hljs-literal {
+    color: #56b6c2;
+  }
+
+  .hljs-string,
+  .hljs-regexp,
+  .hljs-addition,
+  .hljs-attribute,
+  .hljs-meta-string {
+    color: #98c379;
+  }
+
+  .hljs-built_in,
+  .hljs-class .hljs-title {
+    color: #e6c07b;
+  }
+
+  .hljs-attr,
+  .hljs-variable,
+  .hljs-template-variable,
+  .hljs-type,
+  .hljs-selector-class,
+  .hljs-selector-attr,
+  .hljs-selector-pseudo,
+  .hljs-number {
+    color: #d19a66;
+  }
+
+  .hljs-symbol,
+  .hljs-bullet,
+  .hljs-link,
+  .hljs-meta,
+  .hljs-selector-id,
+  .hljs-title {
+    color: #61aeee;
+  }
+
+  .hljs-emphasis {
+    font-style: italic;
+  }
+
+  .hljs-strong {
+    font-weight: bold;
+  }
+
+  .hljs-link {
+    text-decoration: underline;
+  }
+</style>
+      <script src="https://cdn.jsdelivr.net/npm/mermaid@10.8.0/dist/mermaid.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/python.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/typescript.min.js"></script>
+      <script>
+        document.addEventListener('DOMContentLoaded', () => {
+          // Initialize highlight.js
+          hljs.configure({ ignoreUnescapedHTML: true });
+          hljs.highlightAll();
+
+          // Initialize mermaid
+          hljs.configure({ ignoreUnescapedHTML: true });
+          hljs.highlightAll();
+
+          // Initialize mermaid
+          mermaid.initialize({
+            startOnLoad: true,
+            theme: 'default'
+          });
+        });
+      </script>
+    </head>
+    <body class="light">
+      <div class="document-container prose">
+        <h1>Machine Learn Basics</h1>
+<p>Machine learning is a field of artificial intelligence that enables systems to learn from data without being explicitly programmed. Here are some basic concepts explained with code examples:</p>
+<h3>1. Supervised Learning:</h3>
+<p>In supervised learning, the algorithm learns from labeled data, where each example is a pair consisting of an input object (typically a vector) and a desired output value (also called the supervisory signal).</p>
+<pre><code class="hljs language-python"><span class="hljs-comment"># Example of supervised learning using scikit-learn</span>
+<span class="hljs-keyword">from</span> sklearn <span class="hljs-keyword">import</span> datasets
+<span class="hljs-keyword">from</span> sklearn.model_selection <span class="hljs-keyword">import</span> train_test_split
+<span class="hljs-keyword">from</span> sklearn.linear_model <span class="hljs-keyword">import</span> LinearRegression
+
+<span class="hljs-comment"># Load the diabetes dataset</span>
+diabetes = datasets.load_diabetes()
+X_train, X_test, y_train, y_test = train_test_split(diabetes.data, diabetes.target, test_size=<span class="hljs-number">0.2</span>)
+
+<span class="hljs-comment"># Create a linear regression model</span>
+model = LinearRegression()
+model.fit(X_train, y_train)
+
+<span class="hljs-comment"># Predict on test data</span>
+predictions = model.predict(X_test)</code></pre><h3>2. Unsupervised Learning:</h3>
+<p>In unsupervised learning, the algorithm learns patterns from unlabeled data. It explores the data and can find hidden structures or patterns.</p>
+<pre><code class="hljs language-python"><span class="hljs-comment"># Example of unsupervised learning using scikit-learn</span>
+<span class="hljs-keyword">from</span> sklearn.cluster <span class="hljs-keyword">import</span> KMeans
+<span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np
+
+<span class="hljs-comment"># Generate random data points</span>
+X = np.random.rand(<span class="hljs-number">100</span>, <span class="hljs-number">2</span>)
+
+<span class="hljs-comment"># Apply KMeans clustering</span>
+kmeans = KMeans(n_clusters=<span class="hljs-number">2</span>)
+kmeans.fit(X)
+
+<span class="hljs-comment"># Get cluster labels</span>
+labels = kmeans.labels_</code></pre><h3>3. Reinforcement Learning:</h3>
+<p>Reinforcement learning is about taking suitable actions to maximize reward in a particular situation. The learner learns to achieve a goal in an uncertain, potentially complex environment.</p>
+<pre><code class="hljs language-python"><span class="hljs-comment"># Example of reinforcement learning using OpenAI Gym</span>
+<span class="hljs-keyword">import</span> gym
+
+<span class="hljs-comment"># Create an environment</span>
+env = gym.make(<span class="hljs-string">&#x27;CartPole-v1&#x27;</span>)
+
+<span class="hljs-comment"># Run episodes with random actions</span>
+<span class="hljs-keyword">for</span> _ <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">10</span>):
+    observation = env.reset()
+    done = <span class="hljs-literal">False</span>
+    <span class="hljs-keyword">while</span> <span class="hljs-keyword">not</span> done:
+        action = env.action_space.sample()
+        observation, reward, done, info = env.step(action)</code></pre><p>These examples showcase the core concepts of machine learning through code snippets in Python using popular libraries like scikit-learn and OpenAI Gym.</p>
+
+      </div>
+    </body>
+    </html>
+  
