@@ -1,0 +1,18 @@
+{
+  "filename": "basic of ml",
+  "filetype": "document",
+  "content": {
+    "document": "# Machine Learn Basics\n\nMachine learning is a field of artificial intelligence that enables systems to learn from data without being explicitly programmed. Here are some basic concepts explained with code examples:\n\n### 1. Supervised Learning:\nIn supervised learning, the algorithm learns from labeled data, where each example is a pair consisting of an input object (typically a vector) and a desired output value (also called the supervisory signal).\n\n```python\n# Example of supervised learning using scikit-learn\nfrom sklearn import datasets\nfrom sklearn.model_selection import train_test_split\nfrom sklearn.linear_model import LinearRegression\n\n# Load the diabetes dataset\ndiabetes = datasets.load_diabetes()\nX_train, X_test, y_train, y_test = train_test_split(diabetes.data, diabetes.target, test_size=0.2)\n\n# Create a linear regression model\nmodel = LinearRegression()\nmodel.fit(X_train, y_train)\n\n# Predict on test data\npredictions = model.predict(X_test)\n```\n\n### 2. Unsupervised Learning:\nIn unsupervised learning, the algorithm learns patterns from unlabeled data. It explores the data and can find hidden structures or patterns.\n\n```python\n# Example of unsupervised learning using scikit-learn\nfrom sklearn.cluster import KMeans\nimport numpy as np\n\n# Generate random data points\nX = np.random.rand(100, 2)\n\n# Apply KMeans clustering\nkmeans = KMeans(n_clusters=2)\nkmeans.fit(X)\n\n# Get cluster labels\nlabels = kmeans.labels_\n```\n\n### 3. Reinforcement Learning:\nReinforcement learning is about taking suitable actions to maximize reward in a particular situation. The learner learns to achieve a goal in an uncertain, potentially complex environment.\n\n```python\n# Example of reinforcement learning using OpenAI Gym\nimport gym\n\n# Create an environment\nenv = gym.make('CartPole-v1')\n\n# Run episodes with random actions\nfor _ in range(10):\n    observation = env.reset()\n    done = False\n    while not done:\n        action = env.action_space.sample()\n        observation, reward, done, info = env.step(action)\n```\n\nThese examples showcase the core concepts of machine learning through code snippets in Python using popular libraries like scikit-learn and OpenAI Gym."
+  },
+  "meta": {
+    "tags": [],
+    "description": "",
+    "categories": [],
+    "repos": [],
+    "github_pages": [],
+    "gistid": "fee090efd89d4bb372e88121fdf22783",
+    "gist_public": false
+  },
+  "created_at": "2025-09-01T10:41:55.784Z",
+  "updated_at": "2025-09-01T11:05:21.045Z"
+}
